@@ -1,1 +1,22 @@
+# OS and editor state
 .DS_Store
+Thumbs.db
+/.idea/workspace.xml
+
+# Godot cache and exports
+.godot/
+/build/
+/exports/
+/export_credentials.cfg
+
+# Blender and Python working files
+*.blend[0-9]*
+__pycache__/
+*.pyc
+
+# Local reference tools and media
+/UmaViewer/
+/design/characters/special-week/
+/design/music/
+/art/special-week/special-week.glb
+/art/special-week/special-week.glb.import

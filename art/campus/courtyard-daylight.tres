@@ -1,0 +1,19 @@
+[gd_resource type="Environment" format=3]
+
+[ext_resource type="Texture2D" path="res://art/campus/courtyard-sky.hdr" id="1_80vxs"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_5ufno"]
+panorama = ExtResource("1_80vxs")
+energy_multiplier = 0.96
+
+[sub_resource type="Sky" id="Sky_7q38a"]
+sky_material = SubResource("PanoramaSkyMaterial_5ufno")
+
+[resource]
+background_mode = 2
+sky = SubResource("Sky_7q38a")
+ambient_light_source = 2
+ambient_light_color = Color(0.90588236, 0.9411765, 1, 1)
+ambient_light_energy = 0.53
+tonemap_mode = 2
+tonemap_exposure = 0.82

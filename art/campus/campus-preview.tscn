@@ -1,0 +1,82 @@
+[gd_scene load_steps=12 format=3]
+
+[ext_resource type="PackedScene" path="res://art/campus/campus.glb" id="1_campus"]
+[ext_resource type="Environment" path="res://art/campus/courtyard-daylight.tres" id="2_daylight"]
+[ext_resource type="Texture2D" path="res://art/campus/basin-ripple-normal.jpg" id="3_ripples"]
+[ext_resource type="Texture2D" path="res://art/campus/courtyard-sky.hdr" id="4_sky"]
+[ext_resource type="Shader" path="res://art/campus/fountain-water.gdshader" id="5_water"]
+[ext_resource type="Script" path="res://art/campus/campus-preview.gd" id="6_glazing"]
+
+[ext_resource type="Script" path="res://art/campus/campus-grass.gd" id="8_grass"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_basin"]
+render_priority = 1
+shader = ExtResource("5_water")
+shader_parameter/daylight = ExtResource("4_sky")
+shader_parameter/ripple_normal = ExtResource("3_ripples")
+shader_parameter/main_basin = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pool"]
+render_priority = 1
+shader = ExtResource("5_water")
+shader_parameter/daylight = ExtResource("4_sky")
+shader_parameter/ripple_normal = ExtResource("3_ripples")
+shader_parameter/basin_depth = 0.2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_falling_water"]
+render_priority = 2
+shader = ExtResource("5_water")
+shader_parameter/daylight = ExtResource("4_sky")
+shader_parameter/ripple_normal = ExtResource("3_ripples")
+shader_parameter/pouring = true
+shader_parameter/basin_depth = 0.007
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_spray"]
+render_priority = 3
+shader = ExtResource("5_water")
+shader_parameter/daylight = ExtResource("4_sky")
+shader_parameter/ripple_normal = ExtResource("3_ripples")
+shader_parameter/pouring = true
+shader_parameter/spray = true
+shader_parameter/basin_depth = 0.007
+
+[node name="CampusPreview" type="Node3D"]
+script = ExtResource("6_glazing")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("2_daylight")
+
+[node name="Campus" parent="." instance=ExtResource("1_campus")]
+
+[node name="02 · Gate to tower" parent="Campus"]
+current = true
+
+[node name="Late morning sun" parent="Campus"]
+shadow_enabled = true
+light_energy = 0.82
+directional_shadow_max_distance = 130.0
+
+[node name="Water surface" parent="Campus"]
+cast_shadow = 0
+material_override = SubResource("ShaderMaterial_basin")
+
+[node name="Reading pool · water" parent="Campus"]
+cast_shadow = 0
+material_override = SubResource("ShaderMaterial_pool")
+
+[node name="Tazza · water" parent="Campus"]
+cast_shadow = 0
+material_override = SubResource("ShaderMaterial_pool")
+
+[node name="Fountain · three flowing pours" parent="Campus"]
+cast_shadow = 0
+material_override = SubResource("ShaderMaterial_falling_water")
+
+[node name="Fountain · impact spray" parent="Campus"]
+cast_shadow = 0
+material_override = SubResource("ShaderMaterial_spray")
+
+[node name="Grass" type="Node3D" parent="."]
+script = ExtResource("8_grass")
+
+[editable path="Campus"]
