@@ -1,0 +1,56 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://game/campus/practice-ladder.gd" id="1"]
+
+[sub_resource type="StandardMaterial3D" id="rail_mat"]
+albedo_color = Color(0.18, 0.39, 0.47, 1)
+metallic = 0.35
+roughness = 0.54
+
+[sub_resource type="StandardMaterial3D" id="deck_mat"]
+albedo_color = Color(0.29, 0.35, 0.38, 1)
+roughness = 0.86
+
+[sub_resource type="BoxMesh" id="rail"]
+size = Vector3(0.040, 2.76, 0.045)
+
+[sub_resource type="BoxMesh" id="deck"]
+material = SubResource("deck_mat")
+size = Vector3(1.06, 0.14, 1.32)
+
+[sub_resource type="BoxShape3D" id="deck_shape"]
+size = Vector3(1.06, 0.14, 1.32)
+
+[sub_resource type="BoxMesh" id="post"]
+material = SubResource("rail_mat")
+size = Vector3(0.065, 1.78, 0.065)
+
+[node name="PracticeLadder" type="StaticBody3D"]
+collision_mask = 0
+script = ExtResource("1")
+
+[node name="Rails" type="MeshInstance3D" parent="."]
+position = Vector3(-0.255, 1.38, 0)
+mesh = SubResource("rail")
+material_override = SubResource("rail_mat")
+
+[node name="RightRail" type="MeshInstance3D" parent="."]
+position = Vector3(0.255, 1.38, 0)
+mesh = SubResource("rail")
+material_override = SubResource("rail_mat")
+
+[node name="Platform" type="MeshInstance3D" parent="."]
+position = Vector3(0, 1.81, -0.66)
+mesh = SubResource("deck")
+
+[node name="PlatformCollision" type="CollisionShape3D" parent="."]
+position = Vector3(0, 1.81, -0.66)
+shape = SubResource("deck_shape")
+
+[node name="LeftPost" type="MeshInstance3D" parent="."]
+position = Vector3(-0.43, 0.89, -1.14)
+mesh = SubResource("post")
+
+[node name="RightPost" type="MeshInstance3D" parent="."]
+position = Vector3(0.43, 0.89, -1.14)
+mesh = SubResource("post")

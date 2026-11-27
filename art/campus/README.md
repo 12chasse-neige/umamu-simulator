@@ -30,11 +30,14 @@ The academy entrance connects to the reception hall, both classroom corridors an
 
 The `Room access markers` collection contains 229 standing positions in 92 floor zones. The [room route data](interior-access.json) records their positions and 103 routes across entrances, stairs and connecting passages in Blender metres. Blender clearance checks use a 1.70 m tall, 0.35 m radius capsule. In Godot, convert a Blender position `(x, y, z)` to `(x, z, −y)`.
 
-The Godot checks drive the regular player controller through every route in both directions and use the in-game interaction to open, enter, close, and exit every bedroom. Run them from the project root after importing the campus.
+The Godot checks drive the runner through each route in both directions, work the bedroom doors, and verify contact with the solid fountain and stump. Run them from the project root after importing the campus.
+
+In the playable scene, `CampusCollision` builds the surface, tree-trunk and fountain physics bodies at startup. Its physics bodies appear under the builder in the remote scene tree while the game runs. The fountain collision follows the solid basin, pedestal, bowl and bronze sculpture, including the floor below the water. The upper brass band has an open center so the bowl holds a clear water surface. The stump has a real opening from the cut rim down to a solid recessed floor.
 
 ```sh
-/Applications/Godot.app/Contents/MacOS/Godot --headless --path . --fixed-fps 60 --script res://game/tests/walk-campus-links.gd
-/Applications/Godot.app/Contents/MacOS/Godot --headless --path . --fixed-fps 60 --script res://game/tests/check-residence-doors.gd
+/Applications/Godot.app/Contents/MacOS/Godot --headless --path . --fixed-fps 60 --script res://game/tests/campus/walk-campus-links.gd
+/Applications/Godot.app/Contents/MacOS/Godot --headless --path . --fixed-fps 60 --script res://game/tests/campus/check-residence-doors.gd
+/Applications/Godot.app/Contents/MacOS/Godot --headless --path . --fixed-fps 60 --script res://game/tests/campus/check-campus-landmarks.gd
 ```
 
 ## Exterior previews
@@ -53,7 +56,9 @@ The Godot checks drive the regular player controller through every route in both
 
 The gate origin is Blender (0, 0, 0), with +Y into campus and Z up. The gate opening is 8 m wide. From the fountain court, the route turns east toward the outer rail opening and the start marker at (40, 136, 0). The primary dirt oval is about 376.5 m around its centerline. Blender clearance checks covered the approach and three running lines, and Godot rendered the route at runner height. The playable milestone covers the runner, camera collision and lap tests. [Layout and playable milestone](../../docs/milestone-1-campus.md)
 
-The frontage has 30 linked classroom bays, a clock tower and covered walks around the court. The three original bronze goddesses pour into a marble-lined basin. Detailed azaleas and boxwood sit in planted beds, and Blender scatters curved blades near paths and lawns. The GLB shares shrub meshes and uses lighter blade geometry. The original blockout and campus directory artwork are available for reference. [Original Blender blockout](blockout-sources.zip) · [Campus directory artwork](../../design/tracen-academy/campus-guide.png)
+In the playable Godot scene, both gate lanterns cast shadows from beside the glass panes. The limestone caps shade the recessed brick joints while warm light reaches the entrance paving. Press **T** to advance the clock to **22:00** and inspect the piers from the path.
+
+The frontage has 30 linked classroom bays, a clock tower and covered walks around the court. The three original bronze goddesses pour into a marble-lined basin. The courtyard stump retains flared roots and exposed growth rings around a deep hollow. Detailed azaleas and boxwood sit in planted beds, and Blender scatters curved blades near paths and lawns. The GLB shares shrub meshes and uses lighter blade geometry. The original blockout and campus directory artwork are available for reference. [Original Blender blockout](blockout-sources.zip) · [Campus directory artwork](../../design/tracen-academy/campus-guide.png)
 
 ## Asset sources
 

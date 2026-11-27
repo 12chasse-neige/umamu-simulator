@@ -1,0 +1,182 @@
+{
+  "idle": {
+    "batch": "relaxed",
+    "source": "special_week_body-idle-arms-low-rep_0-0",
+    "loop_frames": [
+      8,
+      37
+    ]
+  },
+  "walk": {
+    "batch": "trial",
+    "source": "special_week_body-walk-rep_0-0",
+    "loop_frames": [
+      3,
+      44
+    ],
+    "speed": 0.85389
+  },
+  "jog": {
+    "batch": "gameplay",
+    "source": "special_week_body-jog-steady-rep_1-0",
+    "loop_frames": [
+      1,
+      31
+    ],
+    "speed": 1.571314
+  },
+  "run": {
+    "batch": "trial",
+    "source": "special_week_body-run-rep_0-0",
+    "loop_frames": [
+      23,
+      39
+    ],
+    "speed": 3.934955
+  },
+  "sprint": {
+    "batch": "sprint-straightaway",
+    "source": "special_week_body-sprint-long-strides-rep_0-0",
+    "loop_frames": [
+      20,
+      39
+    ],
+    "speed": 4.58147
+  },
+  "squat": {
+    "batch": "baseline",
+    "source": "special_week_body-squat-rep_1-0",
+    "end": 1.85
+  },
+  "prone": {
+    "batch": "refined",
+    "source": "special_week_body-lower-face-down-rep_0-0",
+    "start": 0.48,
+    "end": 1.9
+  },
+  "rise": {
+    "batch": "baseline",
+    "source": "special_week_body-rise-rep_0-0"
+  },
+  "jump": {
+    "batch": "jump-balance",
+    "source": "special_week_body-jump-hands-forward-rep_0-0",
+    "start": 0.13333333333333333,
+    "end": 1.0666666666666667,
+    "takeoff_phase": 0.14285714285714285
+  },
+  "double-jump": {
+    "batch": "contact",
+    "source": "special_week_body-air-tuck-rep_1-0",
+    "start": 0.55,
+    "end": 1.94
+  },
+  "wall-up": {
+    "batch": "trial",
+    "source": "special_week_body-climb-rep_1-0",
+    "loop_frames": [
+      24,
+      55
+    ]
+  },
+  "wall-down": {
+    "batch": "trial",
+    "source": "special_week_body-climb-rep_1-0",
+    "reverse": true,
+    "loop_frames": [
+      24,
+      55
+    ]
+  },
+  "wall-left": {
+    "batch": "baseline",
+    "source": "special_week_body-wall-left-rep_0-1",
+    "loop_frames": [
+      6,
+      57
+    ]
+  },
+  "wall-right": {
+    "batch": "baseline",
+    "source": "special_week_body-wall-right-rep_1-0",
+    "loop_frames": [
+      6,
+      57
+    ]
+  },
+  "mantle": {
+    "batch": "baseline",
+    "source": "special_week_body-mantle-rep_1-1",
+    "start": 0.25,
+    "end": 1.9
+  },
+  "stairs-up": {
+    "batch": "refined",
+    "source": "special_week_body-step-up-rep_1-0",
+    "loop_frames": [
+      12,
+      57
+    ],
+    "speed": 0.98
+  },
+  "stairs-down": {
+    "batch": "baseline",
+    "source": "special_week_body-stairs-down-rep_1-1",
+    "loop_frames": [
+      11,
+      45
+    ],
+    "speed": 0.863797
+  },
+  "tree": {
+    "batch": "baseline",
+    "source": "special_week_body-tree-rep_1-0",
+    "loop_frames": [
+      2,
+      49
+    ]
+  },
+  "vault": {
+    "batch": "contact",
+    "source": "special_week_body-vault-upright-rep_1-0",
+    "start": 0.88,
+    "end": 1.9,
+    "weight": 0.85
+  },
+  "ladder": {
+    "batch": "baseline",
+    "source": "special_week_body-ladder-rep_0-0",
+    "loop_frames": [
+      14,
+      56
+    ]
+  },
+  "turn-left": {
+    "batch": "baseline",
+    "source": "special_week_body-turn-left-rep_0-1",
+    "start": 0.37,
+    "end": 1.15,
+    "weight": 0.66
+  },
+  "turn-right": {
+    "batch": "baseline",
+    "source": "special_week_body-turn-right-rep_0-0",
+    "start": 0.39,
+    "end": 1.15,
+    "weight": 0.66
+  },
+  "land": {
+    "batch": "jump-balance",
+    "source": "special_week_body-jump-hands-forward-rep_0-0",
+    "start": 1.0666666666666667,
+    "end": 1.2666666666666666,
+    "weight": 0.85
+  },
+  "kick": {
+    "batch": "gameplay",
+    "source": "special_week_body-kick-instep-rep_1-0",
+    "start": 1.42,
+    "end": 1.9666666666666666,
+    "contact_phase": 0.72
+  }
+}

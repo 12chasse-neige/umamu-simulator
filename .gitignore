@@ -2,6 +2,7 @@
 .DS_Store
 Thumbs.db
 /.idea/workspace.xml
+/.codegraph/
 
 # Godot cache and exports
 .godot/
@@ -16,7 +17,43 @@ __pycache__/
 
 # Local reference tools and media
 /UmaViewer/
-/design/characters/special-week/
+# Character models are fetched locally (see design/characters/README.md); only the
+# downloader, its credits and its notes belong in the repository.
+/design/characters/*
+!/design/characters/tools/
+!/design/characters/CREDITS.md
+!/design/characters/README.md
 /design/music/
+/design/umamu-motion-reference/
+/design/unimate/*
+!/design/unimate/locomotion/
+/design/unimate/locomotion/*
+!/design/unimate/locomotion/*.py
+!/design/unimate/locomotion/prompts.json
+!/design/unimate/locomotion/review-prompts.json
+!/design/unimate/locomotion/picks.json
 /art/special-week/special-week.glb
 /art/special-week/special-week.glb.import
+/art/special-week/special-week-trial.glb
+/art/special-week/special-week-trial.glb.import
+/art/special-week/special-week-trial_tex_*
+# Rig animations built from the local UniMate clips (see design/unimate)
+/art/special-week/motions.tres
+/art/special-week/motions.json
+/art/characters/
+/art/special-week/special-week-detail.glb
+/art/special-week/special-week-detail.glb.import
+/art/special-week/special-week-detail_tex_*
+/art/special-week/skirt-cycles.json
+
+# Scala account service build and local database
+/target/
+/project/target/
+/project/project/
+/data/
+
+# Optional artwork for the local Academy sign
+/art/race/hishi-amazon-anime.png
+/art/race/hishi-amazon-anime.png.import
+/art/race/finish-amazon.png
+/art/race/finish-amazon.png.import

@@ -1,5 +1,7 @@
 # Milestone 1 · Make Tracen Academy playable
 
+This brief records the original outdoor blockout and proxy-runner milestone. For the current playable build, controls and regressions, use the [project README](../README.md) and [review guide](project-structure.md).
+
 Build one continuous outdoor scene in which a new player can enter through the brick gate, recognize the academy by its clock tower, find the training ground, and run a complete untimed lap. Divide the work into **five regions**. The first three establish the identity of the school, the fourth lets the player discover the track, and the fifth tests running and camera behavior over distance. Each region has its own Blender collection. The current Godot art preview loads the full campus as one scene. [Campus art handoff](../art/campus/README.md)
 
 Start with the [campus guide board](../design/tracen-academy/references/campus-guide-board.webp) for the order of places and the [fountain court](../design/tracen-academy/references/fountain-court.jpg) for their appearance at player height. The [reference index](../design/tracen-academy/references/README.md) lists all eleven downloaded images with their sources, resolutions and modeling uses.
@@ -22,7 +24,7 @@ Use metres. In Blender the gate centre is **(0, 0, 0)**, +Y leads into campus, +
 | 4 · East training path | From (18, 40) run east to (40, 40), then north to (40, 132). Use a 6 m wide path, a rounded inside corner and a 6 m rail opening at its far end. | As the runner turns alongside the wing, the pale outer rail appears against the dirt. Keep this sightline open all the way to the entrance. |
 | 5 · Training oval | Centre at (5, 166). Place bend centres at (−42, 166) and (52, 166). Use two 94 m straights, two 30 m radius semicircles measured on the running centreline, and an 8 m wide tread. | The near straight receives the path. A temporary transverse stripe at X = 40 gives the player a place to start and recognize on return. |
 
-The right-angle route from spawn to the running line is **180 m** (44 m north, 40 m east, 96 m north). The rounded bend shortens it to about 177 m. The primary oval centreline measures **2 × 94 + 2π × 30 ≈ 376.5 m**. Its 8 m tread has an outer footprint of 162 × 68 m. At a constant 9 m/s, allow about 20 seconds to reach the track and 42 seconds per lap. The enlarged Blender scene also includes the nested schooling circuits, stands, dormitories and sports buildings shown on the map. Use the primary dirt circuit for the playable lap.
+The right-angle route from spawn to the running line is **180 m** (44 m north, 40 m east, 96 m north). The rounded bend shortens it to about 177 m. The primary oval centreline measures **2 × 94 + 2π × 30 ≈ 376.5 m**. Its 8 m tread has an outer footprint of 162 × 68 m. At a constant 9 m/s, allow about 20 seconds to reach the track and 42 seconds per lap. The enlarged Blender scene also includes the nested schooling circuits, stands, dormitories and sports buildings shown on the map. The original playable lap used the primary dirt circuit. The playable scene now uses one continuous tread across the former nested circuits, with guard rails on the two course boundaries. [Current race course](running-meet.md)
 
 ## Original Blender blockout brief
 

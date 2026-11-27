@@ -1,0 +1,474 @@
+msgid ""
+msgstr ""
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "TRACEN ACADEMY"
+msgstr "特雷森学园"
+
+msgid "Tracen Academy"
+msgstr "特雷森学园"
+
+msgid "Running meet"
+msgstr "赛跑大会"
+
+msgid "Your runner"
+msgstr "你的赛马娘"
+
+msgid "Choose character"
+msgstr "选择角色"
+
+msgid "Find the training oval on campus and press G at the start line."
+msgstr "前往学园训练跑道，在起跑线按 G 报名。"
+
+msgid "Enter Academy"
+msgstr "进入学园"
+
+msgid "Player account"
+msgstr "玩家账号"
+
+msgid "Sign in"
+msgstr "登录"
+
+msgid "Register"
+msgstr "注册"
+
+msgid "Username"
+msgstr "用户名"
+
+msgid "Password"
+msgstr "密码"
+
+msgid "Create account"
+msgstr "创建账号"
+
+msgid "Sign out"
+msgstr "退出登录"
+
+msgid "Enter your username and password."
+msgstr "请输入用户名和密码。"
+
+msgid "Connecting…"
+msgstr "正在连接…"
+
+msgid "Signed in as %s"
+msgstr "已登录为 %s"
+
+msgid "Choose a username and a password of at least 8 characters."
+msgstr "请选择用户名，并设置至少 8 个字符的密码。"
+
+msgid "Playing as a guest"
+msgstr "当前以访客身份游玩"
+
+msgid "Could not reach the account server."
+msgstr "无法连接账号服务器。"
+
+msgid "Account server unavailable. Start it or play as a guest."
+msgstr "账号服务器不可用。请启动服务器，或以访客身份游玩。"
+
+msgid "The account server returned an invalid response."
+msgstr "账号服务器返回了无效响应。"
+
+msgid "Username or password is incorrect."
+msgstr "用户名或密码错误。"
+
+msgid "That username is taken."
+msgstr "该用户名已被使用。"
+
+msgid "Use 3–24 letters, digits or underscores for the username."
+msgstr "用户名需为 3 至 24 个字母、数字或下划线。"
+
+msgid "Use 8–128 characters for the password."
+msgstr "密码长度需为 8 至 128 个字符。"
+
+msgid "Invalid account request."
+msgstr "账号请求无效。"
+
+msgid "Unknown account operation."
+msgstr "未知的账号操作。"
+
+msgid "Expected POST."
+msgstr "请求必须使用 POST 方法。"
+
+msgid "Expected a JSON request."
+msgstr "请求必须使用 JSON 格式。"
+
+msgid "Account request is too large."
+msgstr "账号请求过大。"
+
+msgid "Account service could not complete the request."
+msgstr "账号服务无法完成此次请求。"
+
+msgid "Choose your runner"
+msgstr "选择赛马娘"
+
+msgid "Choose runner"
+msgstr "确认选择"
+
+msgid "Cancel"
+msgstr "取消"
+
+msgid "No local character models installed."
+msgstr "尚未安装本地角色模型。"
+
+msgid "Could not load this character. Choose another model."
+msgstr "无法加载此角色，请选择其他角色。"
+
+msgid "%s · Playing"
+msgstr "%s · 当前角色"
+
+msgid "Controls"
+msgstr "操作说明"
+
+msgid "Close"
+msgstr "关闭"
+
+msgid "Move or steer. Run automatically during a race."
+msgstr "移动或转向。比赛中默认跑步。"
+
+msgid "Mouse"
+msgstr "鼠标"
+
+msgid "Look around"
+msgstr "转动视角"
+
+msgid "Walk or run while exploring"
+msgstr "探索时切换为走路或跑步"
+
+msgid "Hold RMB"
+msgstr "按住鼠标右键"
+
+msgid "Accelerate while running"
+msgstr "跑步时加速"
+
+msgid "Jump. Press again in the air to double-jump."
+msgstr "跳跃。在空中再按一次可二段跳。"
+
+msgid "Crouch or lie down"
+msgstr "蹲下或趴下"
+
+msgid "Grab a wall, ledge, ladder or tree. Press again to let go."
+msgstr "抓住墙壁、边缘、梯子或树干。再次按下可松手。"
+
+msgid "WASD / W and S"
+msgstr "WASD / W 和 S"
+
+msgid "Climb walls or move up and down trees and ladders"
+msgstr "攀爬墙壁，或沿树干和梯子上下移动"
+
+msgid "Open race entry at the start stripe or cancel solo practice"
+msgstr "在起跑线打开报名菜单，或取消单人练习"
+
+msgid "Use a nearby door or advance the time of day"
+msgstr "开关附近的门，或跳到下一个时段"
+
+msgid "Choose a character or return to the gate"
+msgstr "选择角色，或返回大门"
+
+msgid "Esc / Left mouse"
+msgstr "Esc / 鼠标左键"
+
+msgid "Leave a meet, release the mouse, or click to recapture"
+msgstr "Esc 退出比赛或释放鼠标。左键重新锁定鼠标。"
+
+msgid "Return to the main menu from campus"
+msgstr "从学园返回主菜单"
+
+msgid "Race entry"
+msgstr "比赛报名"
+
+msgid "Two laps  ·  Nine runners"
+msgstr "两圈 · 九名选手"
+
+msgid "Choose your rivals"
+msgstr "选择对手"
+
+msgid "Clear"
+msgstr "清空"
+
+msgid "Auto-fill"
+msgstr "自动补齐"
+
+msgid "Style aptitude"
+msgstr "跑法适性"
+
+msgid "Front Runner"
+msgstr "领跑"
+
+msgid "Pace Chaser"
+msgstr "前列"
+
+msgid "Late Surger"
+msgstr "居中"
+
+msgid "End Closer"
+msgstr "后追"
+
+msgid "Take the lead early"
+msgstr "尽早抢占领先位置"
+
+msgid "Track the leaders"
+msgstr "紧跟领先选手"
+
+msgid "Advance from midpack"
+msgstr "从中游逐步赶超"
+
+msgid "Save for a late charge"
+msgstr "保存体力，留到后程冲刺"
+
+msgid "%s.  This style is fixed for both laps."
+msgstr "%s。两圈均使用此跑法。"
+
+msgid "Grassland"
+msgstr "草地"
+
+msgid "Mudland"
+msgstr "泥地"
+
+msgid "Solo practice"
+msgstr "单人练习"
+
+msgid "Start race"
+msgstr "开始比赛"
+
+msgid "%d / %d rivals"
+msgstr "对手 %d / %d"
+
+msgid "Open spot"
+msgstr "空位"
+
+msgid "%s    ·    Speed %d    Stamina %d    Power %d    Guts %d    Wit %d"
+msgstr "%s · 速度 %d    耐力 %d    力量 %d    根性 %d    智力 %d"
+
+msgid "Starting gate %d / %d"
+msgstr "起跑道 %d / %d"
+
+msgid "Energy %d%%    Cap %.2f m/s    Accel %.2f m/s²"
+msgstr "体力 %d%%    速度上限 %.2f 米/秒    加速度 %.2f 米/秒²"
+
+msgid "Opening leg"
+msgstr "序盘"
+
+msgid "Middle leg"
+msgstr "中盘"
+
+msgid "Final leg"
+msgstr "终盘"
+
+msgid "Last sixth"
+msgstr "最后六分之一"
+
+msgid "Pushing"
+msgstr "加速中"
+
+msgid "Saving energy"
+msgstr "保存体力"
+
+msgid "Fatigued"
+msgstr "疲劳"
+
+msgid "Final spurt"
+msgstr "最后冲刺"
+
+msgid "Lap %d / 2     Position %d / %d"
+msgstr "圈数 %d / 2    排名 %d / %d"
+
+msgid "Finished  ·  Position %d / %d"
+msgstr "已完赛 · 排名 %d / %d"
+
+msgid "%d / %d runners finished"
+msgstr "已完赛 %d / %d"
+
+msgid "Go!"
+msgstr "出发！"
+
+msgid "Stay on track"
+msgstr "请留在赛道内"
+
+msgid "Race results"
+msgstr "比赛结果"
+
+msgid "%s  ·  2 laps"
+msgstr "%s · 两圈"
+
+msgid "Place   Runner"
+msgstr "名次    选手"
+
+msgid "Total time"
+msgstr "总用时"
+
+msgid "Back to track"
+msgstr "返回赛道"
+
+msgid "Race again"
+msgstr "再赛一场"
+
+msgid "1st place"
+msgstr "冠军"
+
+msgid "You"
+msgstr "你"
+
+msgid "START / FINISH"
+msgstr "起点 / 终点"
+
+msgid "Race starts in %d"
+msgstr "比赛将在 %d 秒后开始"
+
+msgid "Practice   %05.1f s   ·   G Cancel"
+msgstr "练习用时 %05.1f 秒   ·   G 取消"
+
+msgid "Lap complete   %.2f s"
+msgstr "单圈完成   %.2f 秒"
+
+msgid "G   Race entry"
+msgstr "G   比赛报名"
+
+msgid "E   Close door"
+msgstr "E   关门"
+
+msgid "E   Open door"
+msgstr "E   开门"
+
+msgid "F   Climb"
+msgstr "F   攀爬"
+
+msgid "W / S   Climb tree     F   Let go"
+msgstr "W / S   爬树     F   松手"
+
+msgid "WASD   Climb wall     F   Let go"
+msgstr "WASD   攀墙     F   松手"
+
+msgid "W   Pull up     S   Lower     F   Let go"
+msgstr "W   翻上去     S   向下     F   松手"
+
+msgid "W / S   Climb     F   Let go"
+msgstr "W / S   向上或向下攀爬     F   松手"
+
+msgid "Academy runner %d"
+msgstr "学园选手 %d"
+
+msgid "Runner proxy"
+msgstr "测试角色"
+
+msgid "Special Week"
+msgstr "特别周"
+
+msgid "Admire Vega"
+msgstr "爱慕织姬"
+
+msgid "Agnes Digital"
+msgstr "爱丽数码"
+
+msgid "Air Groove"
+msgstr "气槽"
+
+msgid "Calstone Light O"
+msgstr "卡尔斯通光辉"
+
+msgid "Daiwa Scarlet"
+msgstr "大和赤骥"
+
+msgid "Darley Arabian"
+msgstr "达利阿拉伯"
+
+msgid "El Condor Pasa"
+msgstr "神鹰"
+
+msgid "Fenomeno"
+msgstr "超常骏骥"
+
+msgid "Fuji Kiseki"
+msgstr "富士奇石"
+
+msgid "Gold Ship"
+msgstr "黄金船"
+
+msgid "Grass Wonder"
+msgstr "草上飞"
+
+msgid "Happy Meek"
+msgstr "快乐米可"
+
+msgid "Hishi Akebono"
+msgstr "菱曙"
+
+msgid "Hishi Amazon"
+msgstr "菱亚马逊"
+
+msgid "Maruzensky"
+msgstr "丸善斯基"
+
+msgid "Matikane Tanhauser"
+msgstr "待兼唐怀瑟"
+
+msgid "Mayano Top Gun (Halloween)"
+msgstr "重炮（万圣节）"
+
+msgid "Meisho Doto (Halloween)"
+msgstr "名将怒涛（万圣节）"
+
+msgid "Meisho Doto"
+msgstr "名将怒涛"
+
+msgid "Mejiro McQueen"
+msgstr "目白麦昆"
+
+msgid "Narita Brian"
+msgstr "成田白仁"
+
+msgid "Narita Top Road"
+msgstr "成田路"
+
+msgid "Oguri Cap"
+msgstr "小栗帽"
+
+msgid "Rigantona"
+msgstr "里甘托娜"
+
+msgid "Satono Diamond"
+msgstr "里见光钻"
+
+msgid "Seiun Sky"
+msgstr "青云天空"
+
+msgid "Silence Suzuka"
+msgstr "无声铃鹿"
+
+msgid "Speed Symboli"
+msgstr "速度象征"
+
+msgid "Still In Love"
+msgstr "爱如往昔"
+
+msgid "Super Creek (Mummy)"
+msgstr "超级小海湾（木乃伊）"
+
+msgid "Super Creek"
+msgstr "超级小海湾"
+
+msgid "Symboli Rudolf"
+msgstr "鲁道夫象征"
+
+msgid "Taiki Shuttle"
+msgstr "大树快车"
+
+msgid "Tamamo Cross"
+msgstr "玉藻十字"
+
+msgid "T.M. Opera O"
+msgstr "好歌剧"
+
+msgid "Tokai Teio"
+msgstr "东海帝皇"
+
+msgid "Twin Turbo"
+msgstr "双涡轮"
+
+msgid "Vodka"
+msgstr "伏特加"
+
+msgid "Show NPC names"
+msgstr "显示 NPC 名字"

@@ -1,5 +1,6 @@
 extends Node3D
 
+const Course := preload("res://game/race/race-course.gd")
 const SCATTER := preload("res://art/campus/grass-scatter.json")
 const NEAR_RADIUS := 26.0
 const OUTER_RADIUS := 57.0
@@ -15,6 +16,7 @@ var waiting: Array[Vector2i] = []
 var wanted: Dictionary[Vector2i, bool] = {}
 var focus := Vector2(INF, INF)
 var tile_size: float
+var reserve_race_course := false
 
 
 func _ready() -> void:
@@ -116,6 +118,8 @@ func _plant_tile(key: Vector2i, near: bool) -> MultiMeshInstance3D:
 			var c := cos(yaw) * leaf_width
 			var s := sin(yaw) * leaf_width
 			var height := size * fields[field + 9] * 1.19
+			if reserve_race_course and Course.contains_offset(Course.lateral_offset(x + tile_origin.x, z + tile_origin.z)):
+				continue
 			# MultiMesh packs the three rows of each 3D transform.
 			transforms.append(c)
 			transforms.append(0.0)
@@ -133,7 +137,7 @@ func _plant_tile(key: Vector2i, near: bool) -> MultiMeshInstance3D:
 	var mulch := MultiMesh.new()
 	mulch.transform_format = MultiMesh.TRANSFORM_3D
 	mulch.mesh = source[variation % source.size()]
-	mulch.instance_count = transforms.size() / 12
+	mulch.instance_count = floori(transforms.size() / 12.0)
 	if mulch.instance_count > 0:
 		mulch.buffer = transforms
 	var patch := MultiMeshInstance3D.new()

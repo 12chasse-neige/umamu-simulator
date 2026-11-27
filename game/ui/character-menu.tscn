@@ -1,0 +1,74 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://game/ui/character-menu.gd" id="1_menu"]
+[ext_resource type="Script" path="res://game/ui/character-grid.gd" id="2_grid"]
+
+[node name="CharacterMenu" type="Control"]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_menu")
+
+[node name="Backdrop" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Center" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="PanelContainer" parent="Center"]
+custom_minimum_size = Vector2(874, 0)
+layout_mode = 2
+
+[node name="Content" type="VBoxContainer" parent="Center/Panel"]
+layout_mode = 2
+theme_override_constants/separation = 13
+
+[node name="Heading" type="Label" parent="Center/Panel/Content"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Choose your runner"
+
+[node name="Choices" type="ItemList" parent="Center/Panel/Content"]
+unique_name_in_owner = true
+layout_mode = 2
+script = ExtResource("2_grid")
+
+[node name="Status" type="Label" parent="Center/Panel/Content"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+autowrap_mode = 2
+
+[node name="Actions" type="HBoxContainer" parent="Center/Panel/Content"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 2
+
+[node name="Cancel" type="Button" parent="Center/Panel/Content/Actions"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(98, 41)
+layout_mode = 2
+text = "Cancel"
+
+[node name="Switch" type="Button" parent="Center/Panel/Content/Actions"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(132, 41)
+layout_mode = 2
+theme_type_variation = &"PrimaryButton"
+disabled = true
+text = "Choose runner"

@@ -1,0 +1,113 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://game/campus/campus-entry.gd" id="0_entry"]
+[ext_resource type="PackedScene" path="res://art/campus/campus-preview.tscn" id="1_campus"]
+[ext_resource type="Script" path="res://game/campus/campus-collision.gd" id="2_collision"]
+[ext_resource type="PackedScene" path="res://game/runner/runner.tscn" id="3_runner"]
+[ext_resource type="Script" path="res://game/campus/campus-doors.gd" id="5_doors"]
+[ext_resource type="Script" path="res://game/campus/academy-residents.gd" id="7_residents"]
+[ext_resource type="Script" path="res://game/campus/campus-time.gd" id="6_time"]
+[ext_resource type="PackedScene" path="res://game/ui/character-menu.tscn" id="8_characters"]
+
+[ext_resource type="PackedScene" path="res://game/race/running-race.tscn" id="9_race"]
+
+[node name="CampusWalk" type="Node3D"]
+script = ExtResource("0_entry")
+
+[node name="Campus" parent="." instance=ExtResource("1_campus")]
+
+[node name="CampusCollision" type="Node3D" parent="." node_paths=PackedStringArray("campus")]
+script = ExtResource("2_collision")
+campus = NodePath("../Campus/Campus")
+
+[node name="SpecialWeek" parent="." node_paths=PackedStringArray("climb_hint", "race_hint") instance=ExtResource("3_runner")]
+position = Vector3(0, 0.12, 4)
+collision_mask = 5
+climb_hint = NodePath("../Controls/ClimbPrompt")
+race_hint = NodePath("../Controls/RacePrompt")
+
+[node name="Doors" type="Node3D" parent="." node_paths=PackedStringArray("campus", "player", "prompt")]
+script = ExtResource("5_doors")
+campus = NodePath("../Campus/Campus")
+player = NodePath("../SpecialWeek")
+prompt = NodePath("../Controls/DoorPrompt")
+
+[node name="Residents" type="Node3D" parent="." node_paths=PackedStringArray("player", "doors")]
+script = ExtResource("7_residents")
+player = NodePath("../SpecialWeek")
+doors = NodePath("../Doors")
+
+[node name="CampusTime" type="Node3D" parent="." node_paths=PackedStringArray("campus", "world", "clock_label")]
+script = ExtResource("6_time")
+campus = NodePath("../Campus/Campus")
+world = NodePath("../Campus/WorldEnvironment")
+clock_label = NodePath("../Controls/Clock")
+
+[node name="Controls" type="CanvasLayer" parent="."]
+
+[node name="RacePrompt" type="Label" parent="Controls"]
+visible = false
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -320.0
+offset_right = 320.0
+offset_top = 24.0
+offset_bottom = 57.0
+mouse_filter = 2
+theme_override_colors/font_outline_color = Color(0.10, 0.14, 0.12, 0.9)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 21
+horizontal_alignment = 1
+
+[node name="ClimbPrompt" type="Label" parent="Controls"]
+visible = false
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -145.0
+offset_top = -150.0
+offset_right = 145.0
+offset_bottom = -122.0
+mouse_filter = 2
+theme_override_colors/font_outline_color = Color(0.10, 0.14, 0.12, 0.9)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+
+[node name="DoorPrompt" type="Label" parent="Controls"]
+visible = false
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -130.0
+offset_top = -117.0
+offset_right = 130.0
+offset_bottom = -89.0
+mouse_filter = 2
+theme_override_colors/font_outline_color = Color(0.10, 0.14, 0.12, 0.9)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+
+[node name="Clock" type="Label" parent="Controls"]
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -135.0
+offset_top = 18.0
+offset_right = -22.0
+offset_bottom = 46.0
+mouse_filter = 2
+theme_override_colors/font_outline_color = Color(0.10, 0.14, 0.12, 0.9)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 19
+horizontal_alignment = 2
+
+[node name="CharacterMenu" parent="Controls" node_paths=PackedStringArray("runner") instance=ExtResource("8_characters")]
+runner = NodePath("../../SpecialWeek")
+
+
+[node name="RunningRace" parent="." node_paths=PackedStringArray("player", "campus") instance=ExtResource("9_race")]
+player = NodePath("../SpecialWeek")
+campus = NodePath("../Campus/Campus")

@@ -1,0 +1,6 @@
+{
+  "walk": "An object walks forward at a relaxed pace.",
+  "run": "An object runs forward.",
+  "jump": "An object jumps forward and lands on both feet.",
+  "climb": "An object climbs up a vertical wall using both hands and feet."
+}

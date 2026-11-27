@@ -1,29 +1,44 @@
-"""Build the textured Godot character from the supplied FBX and atlases."""
+"""Build local Godot characters from the supplied FBX files and atlases."""
 
 from math import cos, pi, radians, sin, tau
 from pathlib import Path
+import sys
 from tempfile import TemporaryDirectory
 
 import bpy
 from mathutils import Quaternion, Vector
 
 
-SOURCE = Path(__file__).resolve().parents[2] / "design/characters/special-week"
-TEXTURES = {
-    "mtl_bdy1001_00": "tex_bdy1001_00_diff",
-    "mtl_chr1001_00_eye": "tex_chr1001_00_eye0",
-    "mtl_chr1001_00_face": "tex_chr1001_00_face_diff",
-    "mtl_chr1001_00_hair": "tex_chr1001_00_hair_diff",
-    "mtl_chr1001_00_mayu": "tex_chr1001_00_face_diff",
-    "mtl_tail0001_00": "tex_tail0001_00_1001_diff",
-}
+ART = Path(__file__).resolve().parents[1]
+SOURCES = ART.parent / "design/characters"
 X, Y, Z = (1, 0, 0), (0, 1, 0), (0, 0, 1)
 SIDES = ("L", "R")
 
 
-def bind_textures():
+def bind_textures(source):
+    directory = source / "textures"
+    body, = directory.glob("tex_bdy????_??_diff.png")
+    character_id = body.name[7:11]
     for material in bpy.data.materials:
-        atlas = TEXTURES[material.name.split(".")[0]]
+        part, _, alpha = material.name.split(".")[0].partition("_Alpha")
+        atlas = part.removeprefix("mtl_")
+        if atlas.startswith("tail"):
+            filename = f"tex_{atlas}_{character_id}_diff.png"
+        elif atlas.endswith("_eye"):
+            filename = f"tex_{atlas}0*.png"
+        else:
+            if atlas.endswith("_mayu"):
+                atlas = atlas.removesuffix("_mayu") + "_face"
+            filename = f"tex_{atlas}_diff.png"
+        matches = list(directory.glob(filename))
+        if not matches:
+            fallback = source / "gltf" / "textures" / f"{part}_baseColor.png"
+            if fallback.is_file():
+                print(f"{source.name}: using {fallback.name} for {material.name}")
+                matches = [fallback]
+        if len(matches) != 1:
+            raise ValueError(f"{source.name}: expected one diffuse texture for {material.name}, found {matches}")
+        texture_path, = matches
         nodes = material.node_tree.nodes
         shader = nodes.get("Principled BSDF")
         shader.inputs["Base Color"].default_value = (1, 1, 1, 1)
@@ -31,8 +46,10 @@ def bind_textures():
         shader.inputs["Metallic"].default_value = 0.0
         shader.inputs["Specular IOR Level"].default_value = 0.0
         texture = nodes.new("ShaderNodeTexImage")
-        texture.image = bpy.data.images.load(str(SOURCE / "textures" / f"{atlas}.png"), check_existing=True)
+        texture.image = bpy.data.images.load(str(texture_path), check_existing=True)
         material.node_tree.links.new(texture.outputs["Color"], shader.inputs["Base Color"])
+        if alpha:
+            material.node_tree.links.new(texture.outputs["Alpha"], shader.inputs["Alpha"])
 
 
 def key_rotation(rig, name, frame, *rotations):
@@ -128,10 +145,7 @@ def add_action(rig, name, length, pose, **options):
     track.mute = True
 
 
-def export():
-    bpy.ops.wm.read_factory_settings(use_empty=True)
-    bpy.ops.import_scene.fbx(filepath=str(SOURCE / "source/Special Week Race Special Dreamer.fbx"))
-    bind_textures()
+def bake_special_week_animations():
     rig = next(obj for obj in bpy.context.scene.objects if obj.type == "ARMATURE")
     rig.animation_data_create()
     bpy.context.scene.render.fps = 30
@@ -142,21 +156,47 @@ def export():
     add_action(rig, "CrouchWalk", 24, crouch_pose, walking=True)
     add_action(rig, "Jump", 30, jump_pose)
 
-    destination = Path(__file__).resolve().with_name("special-week.glb")
+
+def export(slug, *, skip_unrigged=False):
+    source = SOURCES / slug
+    fbx, = (source / "source").glob("*.fbx")
+    bpy.ops.wm.read_factory_settings(use_empty=True)
+    bpy.ops.import_scene.fbx(filepath=str(fbx))
+    if not any(obj.type == "ARMATURE" for obj in bpy.context.scene.objects):
+        if skip_unrigged:
+            print(f"Skipping {slug}: the FBX has no armature.")
+            return
+        raise ValueError(f"{slug}: the FBX has no armature.")
+    bind_textures(source)
+    special_week = slug == "special-week"
+    if special_week:
+        bake_special_week_animations()
+    folder = ART / ("special-week" if special_week else "characters")
+    folder.mkdir(exist_ok=True)
+    destination = folder / f"{slug}.glb"
     with TemporaryDirectory(dir=destination.parent) as directory:
         output = Path(directory, destination.name)
         result = bpy.ops.export_scene.gltf(
             filepath=str(output),
             export_format="GLB",
+            export_animations=special_week,
             export_animation_mode="ACTIONS",
             export_anim_slide_to_zero=True,
             export_force_sampling=False,
             export_morph=False,
         )
         if "FINISHED" not in result or not output.is_file():
-            raise RuntimeError("Blender did not finish exporting Special Week.")
+            raise RuntimeError(f"Blender did not finish exporting {slug}.")
         output.replace(destination)
 
 
 if __name__ == "__main__":
-    export()
+    slugs = sys.argv[sys.argv.index("--") + 1:] if "--" in sys.argv else ["special-week"]
+    installed = sorted(p.parent.parent.name for p in SOURCES.glob("*/source/*.fbx"))
+    roster = slugs == ["--roster"]
+    if roster:
+        slugs = [slug for slug in installed if slug != "special-week"]
+    for slug in slugs:
+        if slug not in installed:
+            raise SystemExit(f"Missing local FBX for {slug}.")
+        export(slug, skip_unrigged=roster)
