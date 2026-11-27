@@ -2,6 +2,8 @@
 
 A single-player 3D racing and campus exploration game built in Godot and Blender. Enter the Academy and walk to its training oval. Choose eight rivals and run two laps on Grassland or Mudland.
 
+Download the public macOS or Windows build from [Tracen Academy v1.0.0](https://github.com/12chasse-neige/umamu-simulator/releases/tag/v1.0.0).
+
 ![The academy courtyard and fountain rendered in Godot](design/tracen-academy/previews/courtyard-godot.jpg)
 
 ## Run the prototype
@@ -75,7 +77,7 @@ Keep the service running while you use the account panel. It listens on `127.0.0
 
 ## Desktop packages
 
-Extract the macOS ZIP and open `Tracen Academy.app` on Apple Silicon or Intel. The app uses an ad-hoc signature and has no Apple notarization. On 64-bit Windows, extract the ZIP and run `Tracen-Academy.exe`. Both packages contain the guest game and proxy racers. Campus residents and character artwork use optional local assets in the source project. To use accounts with either desktop package, run the service separately as described above. [Godot’s macOS launch guide](https://docs.godotengine.org/en/stable/tutorials/export/running_on_macos.html)
+Extract the macOS ZIP and open `Tracen Academy.app` on Apple Silicon or Intel. The app uses an ad-hoc signature and has no Apple notarization. On 64-bit Windows, extract the ZIP and run `Tracen-Academy.exe`. The public packages contain the guest game and proxy racers. The soundtrack, campus residents, and Hishi Amazon artwork come from optional local assets. To use accounts with either desktop package, run the service separately as described above. [Godot’s macOS launch guide](https://docs.godotengine.org/en/stable/tutorials/export/running_on_macos.html)
 
 To add your own soundtrack to an exported game, put your tracks in `~/Library/Application Support/Godot/app_userdata/Tracen Academy/music/` on macOS or `%APPDATA%\Godot\app_userdata\Tracen Academy\music\` on Windows. Keep the folder names and filenames described under [Background music](#background-music) and [Race music](docs/running-meet.md#race-music) for the four dedicated cues. Restart the game after adding music.
 
