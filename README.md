@@ -93,6 +93,8 @@ The Windows preset embeds the project data in the executable. The macOS preset p
 
 For a desktop package with bundled music, use a separate staging copy of the project. Replace its `design/` directory with one containing only the `music/` tree. Keep the audio files in their original folders, set their import mode to **Keep File**, and remove `design/*` from both presets' resource exclusion filters in the staging copy. Run the same export commands. These builds play the bundled library on launch and use the same campus exclusions and race cues as the source project.
 
+For a private desktop package with the installed character roster, copy the runtime assets from `art/characters/` and `art/special-week/` into the staging copy. Keep the models, textures, and animation libraries together. Remove `art/characters/*` and `art/special-week/*` from the staging presets' exclusion filters and add `art/special-week/motions.json` and `art/special-week/skirt-cycles.json` to their include filters. Run the import before exporting. The same roster supplies the player picker, race lineup and campus residents. [Local character asset setup](design/characters/README.md)
+
 ## Project files
 
 | Path | Contents |
