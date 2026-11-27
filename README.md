@@ -91,6 +91,8 @@ zip -j exports/Tracen-Academy-Windows-x86_64.zip exports/Tracen-Academy.exe
 
 The Windows preset embeds the project data in the executable. The macOS preset places the project data inside the app bundle. Keep ETC2/ASTC texture importing enabled for the universal macOS build. Both packages include the shared campus scene and its imported art. [Desktop export presets](export_presets.cfg)
 
+For a desktop package with bundled music, use a separate staging copy of the project. Replace its `design/` directory with one containing only the `music/` tree. Keep the audio files in their original folders, set their import mode to **Keep File**, and remove `design/*` from both presets' resource exclusion filters in the staging copy. Run the same export commands. These builds play the bundled library on launch and use the same campus exclusions and race cues as the source project.
+
 ## Project files
 
 | Path | Contents |
