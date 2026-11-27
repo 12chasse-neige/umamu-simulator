@@ -95,6 +95,8 @@ For a desktop package with bundled music, use a separate staging copy of the pro
 
 For a private desktop package with the installed character roster, copy the runtime assets from `art/characters/` and `art/special-week/` into the staging copy. Keep the models, textures, and animation libraries together. Remove `art/characters/*` and `art/special-week/*` from the staging presets' exclusion filters and add `art/special-week/motions.json` and `art/special-week/skirt-cycles.json` to their include filters. Run the import before exporting. The same roster supplies the player picker, race lineup and campus residents. [Local character asset setup](design/characters/README.md)
 
+To include Hishi Amazon's start/finish sign artwork in a private desktop package, copy `art/race/hishi-amazon-anime.png` into the staging copy and remove its path from both staging presets' exclusion filters. Import and export as above. [Trackside sign](docs/running-meet.md#race-timing-and-assets)
+
 ## Project files
 
 | Path | Contents |
