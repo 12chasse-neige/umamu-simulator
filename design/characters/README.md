@@ -6,7 +6,7 @@ models are game rips of Cygames' Uma Musume assets and must not be redistributed
 
 ## What is here
 
-`special-week/` is the original hand-placed export the runner uses. The other 39
+`special-week/` is the original hand-placed export the runner uses. The other 38
 came from the public Sketchfab collection of the same asset lineage, so they carry
 the in-game skeleton, the `mtl_<part><id>_00` material names and the
 `tex_<part><id>_<variant>_<map>.png` atlas names:
@@ -27,7 +27,6 @@ the in-game skeleton, the `mtl_<part><id>_00` material names and the
 | `happy-meek/` | Happy Meek | 29,349 | 704 | 2001 |
 | `hishi-akebono/` | Hishi Akebono | 28,422 | 704 | 1028/01 |
 | `hishi-amazon/` | Hishi Amazon | 26,157 | 427 | 1012/01 |
-| `kitasan-black/` | Kitasan Black | 91,969 | — ⚠ | — ⚠ |
 | `maruzensky/` | Maruzensky | 25,528 | 439 | 1004 |
 | `matikane-tanhauser/` | Matikane Tanhauser | 30,826 | 706 | 1062 |
 | `mayano-top-gun-halloween/` | Mayano Top Gun (Halloween) | 30,002 | 705 | 1024/40 |
@@ -53,11 +52,10 @@ the in-game skeleton, the `mtl_<part><id>_00` material names and the
 | `twin-turbo/` | Twin Turbo | 28,949 | 702 | 1066 |
 | `vodka/` | Vodka | 22,536 | 410 | 1008 |
 
-Attribution lives in `CREDITS.md`, covering 5 uploaders: Alexandra
+Attribution lives in `CREDITS.md` and covers three uploaders, Alexandra
 ([ansaldotoys2](https://sketchfab.com/ansaldotoys2), 20 models), photon
-([Professor_E12](https://sketchfab.com/Professor_E12), 12), symbol aughhhh
-([yabadiba](https://sketchfab.com/yabadiba), 6) and Flying Cat
-([FlyingCat25](https://sketchfab.com/FlyingCat25), the unrigged Kitasan Black).
+([Professor_E12](https://sketchfab.com/Professor_E12), 12) and symbol aughhhh
+([yabadiba](https://sketchfab.com/yabadiba), 6).
 The models are CC-BY, so that file has to travel with anything you publish.
 
 ## Layout of each character
@@ -99,9 +97,6 @@ The models are CC-BY, so that file has to travel with anything you publish.
   her converted glTF's `mtl_chr1127_00_hair_baseColor.png`.
 - `super-creek/` is missing the original tail diffuse atlas. The exporter uses
   her converted glTF's `mtl_tail0001_00_baseColor.png`.
-- `kitasan-black/` is **not** a game rip and not usable by the pipeline: a single
-  unrigged mesh named `Stocking` with generic `Material.001`–`Material.015` and no
-  texture set. Kept because it is a Kitasan Black model, but it will not animate.
 - Haru Urara was in the collection but the uploader delisted it mid-run
   (`{"detail": "Unavailable asset"}`), so it is not here.
 
@@ -110,8 +105,8 @@ The models are CC-BY, so that file has to travel with anything you publish.
 `tools/verify_models.py` runs every check below; run it under Blender for the
 rig half.
 
-- 37 of 39 pass cleanly; the two failures are Fenomeno's missing hair atlas and
-  Kitasan Black above, both reported rather than hidden.
+- 37 of the 38 downloaded models pass the file checks. Fenomeno uses the
+  converted glTF texture for her missing hair atlas.
 - All 38 rigged FBX import into Blender 5.3 headless as a single armature, and
   every bone `export_glb.py` drives is present under its exact name: `Hip`,
   `Chest`, `Neck`, `Head`, `Thigh_L`, `Knee_L`, `Ankle_L`, `Arm_L`, `Elbow_L`,

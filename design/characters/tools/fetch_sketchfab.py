@@ -74,7 +74,6 @@ CHARACTERS = [
     ("maruzensky", "ef47019249e64ee3a754b823ae3da947", "Maruzensky"),
     ("fuji-kiseki", "b1896ff655344901b9a87bd8dd548daa", "Fuji Kiseki"),
     ("taiki-shuttle", "3d346328382948f1b974c690ffcd985c", "Taiki Shuttle"),
-    ("kitasan-black", "fda8f645641744e4a53ebeebfb2513fd", "Kitasan Black"),
     ("happy-meek", "ce07ec53e8c948999fccd7fa3ce71784", "Happy Meek"),
     ("speed-symboli", "2991b549878946ac8467807b7eee9b93", "Speed Symboli"),
     ("rigantona", "717c15b013cc41b28768c5c4dcd0729d", "Rigantona"),
