@@ -87,7 +87,7 @@ godot --headless --path . --export-release 'Windows Desktop' exports/Tracen-Acad
 zip -j exports/Tracen-Academy-Windows-x86_64.zip exports/Tracen-Academy.exe
 ```
 
-The Windows preset embeds the project data in the executable. The macOS preset places the project data inside the app bundle. [Desktop export presets](export_presets.cfg)
+The Windows preset embeds the project data in the executable. The macOS preset places the project data inside the app bundle. Keep ETC2/ASTC texture importing enabled for the universal macOS build. Both packages include the shared campus scene and its imported art. [Desktop export presets](export_presets.cfg)
 
 ## Project files
 
