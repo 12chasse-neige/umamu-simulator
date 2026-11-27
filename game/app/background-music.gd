@@ -1,16 +1,17 @@
 extends AudioStreamPlayer
 
-const MUSIC := "res://design/music"
+const SOURCE_MUSIC := "res://design/music"
+const PLAYER_MUSIC := "user://music"
 const FORMATS := ["ogg", "mp3", "wav"]
-const RACE_FOLDER := "res://design/music/01-race"
-const STINGERS_FOLDER := "res://design/music/06-stingers"
+const RACE_FOLDER := "01-race"
+const STINGERS_FOLDER := "06-stingers"
 const AMBIENT_VOLUME_DB := -16.0
 const RACE_VOLUME_DB := -8.0
 
 enum RaceCue { ENTRY, START, RUN, RESULTS }
 
 const RACE_TRACKS := {
-	RaceCue.ENTRY: "res://design/music/02-bgm-am/1-05. am003 -Cleats, Powerfully and Lightly.mp3",
+	RaceCue.ENTRY: "02-bgm-am/1-05. am003 -Cleats, Powerfully and Lightly.mp3",
 	RaceCue.START: RACE_FOLDER + "/8-01. 1001 cl#2 -Tokyo & Nakayama G1 Race.mp3",
 	RaceCue.RUN: RACE_FOLDER + "/arc-race-bgm.mp3",
 	RaceCue.RESULTS: RACE_FOLDER + "/8-10. 1010 cl#2 -Tokyo & Nakayama Open Race.mp3",
@@ -19,6 +20,7 @@ const RACE_TRACKS := {
 const START_OFFSET := 19.5
 
 var _remaining: Array[String] = []
+var _music_directory := SOURCE_MUSIC
 var _unplayable: Dictionary[String, bool] = {}
 var _last_track := ""
 var _random := RandomNumberGenerator.new()
@@ -31,12 +33,14 @@ func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	volume_db = AMBIENT_VOLUME_DB
 	finished.connect(_on_finished)
+	if not DirAccess.dir_exists_absolute(SOURCE_MUSIC):
+		_music_directory = PLAYER_MUSIC
 	if DisplayServer.get_name() != "headless":
 		_play_next()
 
 
 func play_race_cue(cue: RaceCue) -> void:
-	var path: String = RACE_TRACKS[cue]
+	var path := _music_directory.path_join(RACE_TRACKS[cue])
 	if not FileAccess.file_exists(path):
 		resume_ambient()
 		return
@@ -74,8 +78,8 @@ func _on_finished() -> void:
 
 
 func _play_next() -> void:
-	if _remaining.is_empty():
-		_collect(MUSIC)
+	if _remaining.is_empty() and DirAccess.dir_exists_absolute(_music_directory):
+		_collect(_music_directory)
 	while not _remaining.is_empty():
 		var index := _random.randi_range(0, _remaining.size() - 1)
 		if _remaining.size() > 1 and _remaining[index] == _last_track:
@@ -87,11 +91,12 @@ func _play_next() -> void:
 
 
 func _collect(directory: String) -> void:
-	if directory == RACE_FOLDER or directory == STINGERS_FOLDER:
+	if directory == _music_directory.path_join(RACE_FOLDER) or directory == _music_directory.path_join(STINGERS_FOLDER):
 		return
 	for filename in DirAccess.get_files_at(directory):
 		var source := directory.path_join(filename)
-		if filename.get_extension().to_lower() in FORMATS and not _unplayable.has(source) and not RACE_TRACKS.values().has(source):
+		var track := source.trim_prefix(_music_directory + "/")
+		if filename.get_extension().to_lower() in FORMATS and not _unplayable.has(source) and not RACE_TRACKS.values().has(track):
 			_remaining.append(source)
 	for subdirectory in DirAccess.get_directories_at(directory):
 		_collect(directory.path_join(subdirectory))

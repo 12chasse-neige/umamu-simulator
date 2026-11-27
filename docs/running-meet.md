@@ -37,6 +37,15 @@ The start/finish sign stands behind the inside rail, facing across the track. Th
 
 Race entry plays **1-05 · Cleats, Powerfully and Lightly**. The three-second countdown uses the closing phrase of **8-01 · Tokyo & Nakayama G1 Race**. At **Go**, `arc-race-bgm.mp3` takes over and loops until results. The results screen plays **8-10 · Tokyo & Nakayama Open Race** once. Cancel or leave a meet to return to the ambient playlist. A retry plays the countdown cue again. Race cues play 8 dB louder than the ambient playlist.
 
+Use these paths relative to the music folder when setting up the dedicated cues.
+
+| Cue | File |
+| --- | --- |
+| Entry | `02-bgm-am/1-05. am003 -Cleats, Powerfully and Lightly.mp3` |
+| Countdown | `01-race/8-01. 1001 cl#2 -Tokyo & Nakayama G1 Race.mp3` |
+| Running | `01-race/arc-race-bgm.mp3` |
+| Results | `01-race/8-10. 1010 cl#2 -Tokyo & Nakayama Open Race.mp3` |
+
 ## Character portraits
 
 The gallery and race entry render portraits from the installed Godot models, including alternate outfits. Portraits are generated in a separate viewport and cached under `user://portraits-v4`. A new model or changed model file queues a new portrait. If fewer than eight rival models are installed, named Academy proxies fill the remaining spots.
